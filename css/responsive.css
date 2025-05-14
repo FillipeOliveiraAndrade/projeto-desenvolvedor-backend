@@ -1,0 +1,191 @@
+/* Responsive Styles */
+
+/* Tablets and small laptops */
+@media (max-width: 1024px) {
+  section .container {
+    gap: 2rem;
+  }
+  
+  .section-image img {
+    max-height: 350px;
+  }
+  
+  section h2 {
+    font-size: 2rem;
+  }
+  
+  .cards-container {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  }
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+  section .container {
+    flex-direction: column;
+    gap: 3rem;
+  }
+  
+  section {
+    padding: 4rem 0;
+  }
+  
+  .section-content, .section-image {
+    max-width: 100%;
+  }
+  
+  /* Alternate image order */
+  #sobre .container, #contatos .container {
+    flex-direction: column-reverse;
+  }
+  
+  section h2 {
+    font-size: 1.8rem;
+  }
+  
+  .menu-toggle {
+    display: block;
+  }
+  
+  nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100vh;
+    background-color: var(--white);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    z-index: 1001;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  nav.active {
+    right: 0;
+  }
+  
+  nav ul {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  nav a {
+    display: block;
+    padding: 1rem;
+    font-size: 1.2rem;
+  }
+  
+  /* Add active menu functionality with JavaScript */
+  .menu-toggle.active + nav {
+    right: 0;
+  }
+  
+  .section-image {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .section-image img {
+    max-width: 90%;
+    margin: 0 auto;
+  }
+}
+
+/* Mobile phones */
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 1.2rem;
+  }
+  
+  section h2 {
+    font-size: 1.5rem;
+  }
+  
+  section p {
+    font-size: 1rem;
+  }
+  
+  .section-image img {
+    max-height: 250px;
+  }
+  
+  .cards-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .social-btn {
+    display: block;
+    width: 100%;
+    margin-right: 0;
+    text-align: center;
+  }
+  
+  .btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+  
+  nav {
+    width: 85%;
+  }
+  
+  .card {
+    padding: 1rem;
+  }
+  
+  .ods-badge {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  section {
+    padding: 3rem 0;
+  }
+}
+
+/* Animation for menu toggle */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.menu-toggle:hover {
+  color: var(--blue);
+  animation: fadeIn 0.3s ease;
+}
+
+/* Add JavaScript for menu toggle */
+document.addEventListener('DOMContentLoaded', function() {
+  const menuToggle = document.querySelector('.menu-toggle');
+  const nav = document.querySelector('nav');
+  
+  menuToggle.addEventListener('click', function() {
+    nav.classList.toggle('active');
+    menuToggle.classList.toggle('active');
+  });
+  
+  // Close menu when clicking outside
+  document.addEventListener('click', function(event) {
+    if (!nav.contains(event.target) && !menuToggle.contains(event.target)) {
+      nav.classList.remove('active');
+      menuToggle.classList.remove('active');
+    }
+  });
+  
+  // Close menu when clicking on a link
+  const navLinks = document.querySelectorAll('nav a');
+  navLinks.forEach(link => {
+    link.addEventListener('click', function() {
+      nav.classList.remove('active');
+      menuToggle.classList.remove('active');
+    });
+  });
+});
