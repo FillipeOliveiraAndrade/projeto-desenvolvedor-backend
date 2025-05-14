@@ -20,8 +20,7 @@ Criar um site profissional com foco na carreira de **Desenvolvedor Back-End**, a
 
 ## 🌐 Acesse o site
 
-[🔗 Clique aqui para acessar o site publicado](https://SeuUsuario.github.io/seu-repositorio/)  
-> *(Substitua o link acima pelo endereço real gerado pelo GitHub Pages)*
+[🔗 Clique aqui para acessar o site publicado](https://fillipeoliveiraandrade.github.io/projeto-desenvolvedor-backend/)  
 
 ## 📎 Autor
 
